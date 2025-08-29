@@ -1,0 +1,217 @@
+# %%
+print("Hello")
+# by adding # %%, you can create a cell in VS Code
+
+# %%
+print("Hello", "to", "Python")
+
+# %%
+print("number", end=":")
+print(1)
+print(2)
+
+# %%
+name = input("Enter your name: ")
+print("welcome", name)
+
+# %%
+x = input("Enter First Number: ")
+y = input("Enter Second Number: ")
+x = int(x)
+y = int(y)
+res = x + y
+print("Sum is", res)
+
+# %%
+# -------------------------------------------------------
+# 📝 Python Notes for VS Code (Interactive Cells with # %%)
+# -------------------------------------------------------
+
+# In VS Code, adding `# %%` creates a cell.
+# You can run a cell by:
+#   ➤ Clicking on the cell and pressing Shift + Enter
+#   ➤ Right-click > Run Cell
+#   ➤ OR use ▶️ Run icon if you're in a Jupyter-like view
+
+# 📌 Use Terminal (not Interactive Window) when using `input()`!
+
+# %%
+# ------------------------
+# 🔤 No char type in Python
+# ------------------------
+
+# In Python, there is NO char type.
+# A single character is simply a string of length 1.
+
+str = "gfg"
+print(type(str))  # <class 'str'>
+
+# %%
+# ----------------------------
+# 📋 Python List (Dynamic Array)
+# ----------------------------
+
+# Lists can hold multiple items
+# You can add/remove items dynamically
+# Items are stored in contiguous memory (conceptually)
+
+l = [10, 20, 30]
+print(type(l))  # <class 'list'>
+
+# %%
+# 🔸 Tuple in Python
+
+# Tuples are like lists, but you CANNOT modify them after creation.
+# They are immutable.
+
+t = (10, 20, 30)
+print(type(t))  # Output: <class 'tuple'>
+
+# %%
+# 🔸 Set in Python
+
+# A set is a collection of unordered, unique items.
+# All items must be distinct.
+# It behaves like a mathematical set.
+
+s = {10, 20, 30}
+print(type(s))  # Output: <class 'set'>
+
+# %%
+# 🔸 Dictionary in Python
+
+# Dictionaries store data in key-value pairs.
+# Useful for mappings like roll_no: name, item: price, etc.
+
+d = {10: "gfg", 20: "ide"}
+print(type(d))  # Output: <class 'dict'>
+
+# %%
+# Creating a dictionary of roll numbers and names
+
+students = {
+    101: "Alice",
+    102: "Bob",
+    103: "Charlie"
+}
+
+# Accessing a value using a key
+print("Name of roll number 102 is:", students[102])
+
+# Adding a new key-value pair
+students[104] = "David"
+
+# Updating an existing key
+students[101] = "Alicia"
+
+# Removing a key-value pair
+del students[103]
+
+# Display the entire dictionary
+print("Student Dictionary:", students)
+
+# Check the type
+print(type(students))  # Output: <class 'dict'>
+
+# %%
+# %%
+# Given a string
+s = "geeks"
+
+# Convert string to list
+print(list(s))     # ['g', 'e', 'e', 'k', 's']
+
+# Convert string to tuple
+print(tuple(s))    # ('g', 'e', 'e', 'k', 's')
+
+# Convert string to set
+print(set(s))      # {'e', 'g', 'k', 's'}
+# Note: Set will have unique characters only
+# %%
+# 1. if statement - Executes block if condition is True
+x = 10
+if x > 5:
+    print("x is greater than 5")
+
+# %%
+# 2. if...else statement - Executes one block if True, else another
+x = 3
+if x > 5:
+    print("x is greater than 5")
+else:
+    print("x is not greater than 5")
+
+# %%
+# 3. Nested if statement - An if statement inside another if
+x = 20
+if x > 10:
+    print("x is greater than 10")
+    if x > 15:
+        print("x is also greater than 15")
+
+# %%
+# 4. if...elif...else statement - Checks multiple conditions sequentially
+x = 10
+if x > 0:
+    print("Positive number")
+elif x == 0:
+    print("Zero")
+else:
+    print("Negative number")
+
+# %%
+# Arithmetic Operators in Python
+# These are used to perform mathematical operations like +, -, *, / etc.
+# Python supports 7 arithmetic operators.
+
+a = 15
+b = 4
+
+# %%
+# 1. Addition (+): Adds two numbers.
+print("Addition:", a + b)  # Output: 19
+
+# %%
+# 2. Subtraction (-): Subtracts second number from first.
+print("Subtraction:", a - b)  # Output: 11
+
+# %%
+# 3. Multiplication (*): Multiplies two numbers.
+print("Multiplication:", a * b)  # Output: 60
+
+# %%
+# 4. Division (/): Divides first number by second (returns float).
+print("Division:", a / b)  # Output: 3.75
+
+# %%
+# 5. Modulus (%): Returns the remainder of division.
+print("Modulus:", a % b)  # Output: 3
+
+# %%
+# 6. Exponentiation (**): Raises first number to the power of second.
+print("Exponentiation:", a ** b)  # Output: 50625 (15^4)
+
+# %%
+# 7. Floor Division (//): Divides and returns integer part only.
+print("Floor Division:", a // b)  # Output: 3
+
+# %%
+# Logical Operators in Python
+# Logical operators are used to combine conditional statements and return boolean values (True/False).
+
+a = 10
+b = 5
+c = 15
+
+# %%
+# 1. and: Returns True if both conditions are True.
+print(a > b and a < c)  # True (10 > 5 and 10 < 15)
+
+# %%
+# 2. or: Returns True if at least one condition is True.
+print(a < b or a < c)   # True (10 < 5 is False, but 10 < 15 is True)
+
+# %%
+# 3. not: Reverses the result of the condition.
+print(not(a < c))       # False (a < c is True, not True → False)
+18
