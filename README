@@ -313,3 +313,506 @@ z = [1, 2, 3]
 # id (x)  # e.g., 140352303123712
 # print(x is z)      # False (same content, different objects)
 id (z)  # e.g., 140352303124032
+
+# %%
+python_bitwise operators
+# Bitwise Operators in Python
+bitwise operators perform operations on binary representations of integers. They work at the bit level.     
+# Here are the common bitwise operators in Python:
+a = 10  # In binary: 1010
+b = 4   # In binary: 0100
+# 1. AND (&): Sets each bit to 1 if both bits are 1.    
+print("AND:", a & b)  # Output: 0 (0000 in binary)
+# 2. OR (|): Sets each bit to 1 if one of the bits is 1.    
+print("OR:", a | b)   # Output: 14 (1110 in binary)
+# 3. XOR (^): Sets each bit to 1 if only one of the bits is 1.  
+print("XOR:", a ^ b)  # Output: 14 (1110 in binary)
+# 4. NOT (~): Inverts all the bits (1's complement).
+print("NOT:", ~a)     # Output: -11 (inverts bits of 10)    
+# 5. Left Shift (<<): Shifts bits to the left, adding zeros on the right.
+print("Left Shift:", a << 1)  # Output: 20 (10100 in binary)
+# 6. Right Shift (>>): Shifts bits to the right, discarding bits on the right.
+print("Right Shift:", a >> 1) # Output: 5 (0101 in binary)
+# Example to illustrate bitwise operations
+x = 5  # In binary: 0101
+y = 3  # In binary: 0011
+print("x & y:", x & y)  # Output: 1 (0001 in binary)
+print("x | y:", x | y)  # Output: 7 (0111 in binary)
+print("x ^ y:", x ^ y)  # Output: 6 (0110 in binary)
+print("~x:", ~x)        # Output: -6 (inverts bits of 5)
+print("x << 1:", x << 1) # Output: 10 (1010 in binary)
+print("x >> 1:", x >> 1) # Output: 2 (0010 in binary)
+# %%
+python bitwise operator overloading
+# Bitwise Operator Overloading in Python
+# You can define how bitwise operators behave for your custom classes by implementing special methods.
+class BitwiseExample:
+    def __init__(self, value):
+        self.value = value
+
+    # Overloading the & operator
+    def __and__(self, other):
+        return BitwiseExample(self.value & other.value)
+
+    # Overloading the | operator
+    def __or__(self, other):
+        return BitwiseExample(self.value | other.value)
+
+    # Overloading the ^ operator
+    def __xor__(self, other):
+        return BitwiseExample(self.value ^ other.value)
+
+    # Overloading the ~ operator
+    def __invert__(self):
+        return BitwiseExample(~self.value)
+
+    # Overloading the << operator
+    def __lshift__(self, shift):
+        return BitwiseExample(self.value << shift)
+
+    # Overloading the >> operator
+    def __rshift__(self, shift):
+        return BitwiseExample(self.value >> shift)
+
+    def __repr__(self):
+        return f"BitwiseExample({self.value})"
+
+# Example usage
+a = BitwiseExample(10)  # In binary: 1010
+b = BitwiseExample(4)   # In binary: 0100
+print("a & b:", a & b)  # Output: BitwiseExample(0)
+print("a | b:", a | b)  # Output: BitwiseExample(14)
+print("a ^ b:", a ^ b)  # Output: BitwiseExample(14)
+print("~a:", ~a)        # Output: BitwiseExample(-11)
+print("a << 1:", a << 1) # Output: BitwiseExample(20)
+print("a >> 1:", a >> 1) # Output: BitwiseExample(5)
+
+# %%
+loops in python
+# Loops in Python
+# Loops are used to execute a block of code multiple times.
+# Python supports two main types of loops: for and while.
+# 1. for loop - Iterates over a sequence (like a list, tuple, string, or range).
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+# 2. while loop - Repeats as long as a condition is True.
+count = 0
+while count < 5:
+    print("Count is:", count)
+    count += 1  # Increment count to avoid infinite loop    
+# 3. break statement - Exits the loop immediately.
+for i in range(10):
+    if i == 5:
+        break  # Exit loop when i is 5
+    print(i)
+# 4. continue statement - Skips the current iteration and moves to the next.
+for i in range(10):
+    if i % 2 == 0:
+        continue  # Skip even numbers
+    print(i)  # Print only odd numbers
+# 5. else clause - Executes a block of code once when the loop is finished (not terminated by break).
+for i in range(5):
+    print(i)
+else:
+    print("Loop completed without break")   
+# 6. Nested loops - A loop inside another loop.
+for i in range(3):
+    for j in range(2):
+        print(f"i: {i}, j: {j}")    
+# 7. Looping through a dictionary
+student_scores = {"Alice": 85, "Bob": 90, "Charlie": 78}
+for name, score in student_scores.items():
+    print(f"{name}: {score}")
+# 8. Using range() in for loops
+
+for i in range(1, 6):  # From 1 to 5
+    print(i)
+for i in range(0, 10, 2):  # From 0 to 9 with step of 2
+    print(i)
+# 9. List comprehension - A concise way to create lists using loops.
+squares = [x**2 for x in range(10)]
+print(squares)  # Output: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+# 10. Infinite loop - A loop that never ends unless externally stopped.
+# Uncomment the following lines to see an infinite loop in action.
+# while True:
+#     print("This will run forever unless stopped!")
+# Use with caution!
+
+# 11. Using enumerate() to get index and value in a loop    
+fruits = ["apple", "banana", "cherry"]
+for index, fruit in enumerate(fruits):
+    print(f"Index: {index}, Fruit: {fruit}")
+# 12. Using zip() to loop through multiple sequences in parallel
+names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+# 13. Using pass statement - A placeholder that does nothing, useful in empty loops.
+for i in range(5):
+    pass  # Placeholder for future code
+
+# 14. Using else with while loop
+count = 0
+while count < 3:
+    print("Count is:", count)
+    count += 1
+else:
+    print("While loop completed without break")
+
+# %%
+# 15. Using a loop to modify a list
+numbers = [2, 2, 3, 4, 5]
+for i in range(1,3,len(numbers)):
+    numbers[i] *= 2  # Double each number
+print(numbers)  # Output: [2, 4, 6, 8, 10]
+
+# 16. Using a loop to create a multiplication table
+num = 5
+for i in range(1, 11, 2):
+    print(f"{num} x {i} = {num * i}")
+# 17. Using a loop to find the factorial of a number
+# %%
+
+n = 5
+factorial = 1
+for i in range(1, n + 1):
+    # factorial *= i
+    factorial = factorial*i
+    print(f"Intermediate factorial after multiplying by {i}: {factorial}")
+print(f"Factorial of {n} is {factorial}")
+print(f"Factorial of {n} is {factorial}")
+# %%   break in loops
+for i in range(10):
+    if i == 5:
+        print("Breaking the loop at i =", i)
+        break  # Exit loop when i is 5
+    print(i)
+print("Loop ended")
+# %%continue in loops
+
+for i in range(10):
+    if i % 2 == 0:
+        print("Skipping even number:", i)
+        continue  # Skip even numbers
+    print("Odd number:", i)  # Print only odd numbers
+print("Loop ended")
+break in while loop
+count = 0
+while count < 10:
+    print("Count is:", count)
+    if count == 5:
+        print("Breaking the loop at count =", count)
+        break  # Exit loop when count is 5
+    count += 1  # Increment count to avoid infinite loop    
+print("While loop ended")
+# %%continue in while loop
+count = 0 
+while count < 10:
+    count += 1  # Increment count at the start
+    if count % 2 == 0:
+        print("Skipping even count:", count)
+        continue  # Skip even numbers
+    print("Odd count:", count)  # Print only odd numbers    
+print("While loop ended")
+
+
+
+# %%
+# Functions in Python
+# Functions are reusable blocks of code that perform a specific task.   
+# They help in organizing code, improving readability, and avoiding repetition.
+# 1. Defining a function
+def greet(name):
+    """Function to greet a person by name."""
+    print(f"Hello, {name}!")
+# 2. Calling a function
+greet("Alice")  # Output: Hello, Alice!
+# 3. Function with return value
+def add(a, b):
+    """Function to add two numbers and return the result."""
+    return a + b
+result = add(5, 3)
+print("Sum is:", result)  # Output: Sum is: 8
+# 4. Function with default parameters
+def power(base, exponent=2):
+    """Function to calculate power with default exponent 2."""
+    return base ** exponent
+print("Power:", power(3))        # Output: Power: 9 (3^2)
+print("Power:", power(2, 3))     # Output: Power: 8 (2^3)
+# 5. Function with variable-length arguments
+def multiply(*args):
+    """Function to multiply all given numbers."""
+    result = 1
+    for num in args:
+        result *= num
+    return result
+print("Product:", multiply(2, 3, 4))  # Output: Product: 24 (2*3*4) 
+# 6. Function with keyword arguments
+def introduce(name, age):
+    """Function to introduce a person."""
+    print(f"My name is {name} and I am {age} years old.")   
+introduce(age=25, name="Bob")  # Output: My name is Bob and I am 25 years old.
+# 7. Lambda function (anonymous function)
+square = lambda x: x ** 2   
+print("Square of 5 is:", square(5))  # Output: Square of 5 is: 25
+# 8. Nested functions
+def outer_function(msg):
+    """Outer function that defines an inner function."""
+    def inner_function():
+        print(msg)
+    inner_function()  # Call the inner function
+outer_function("Hello from the outer function!")  # Output: Hello from the outer function!
+# 9. Function with docstring
+def factorial(n):
+    """Function to calculate the factorial of a number."""
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+print("Factorial of 5 is:", factorial(5))  # Output: Factorial of 5 is: 120
+
+
+# %%
+# 10. Function with type hints
+# Note: Type hints are just hints; Python won’t enforce them unless you use extra tools like mypy
+def divide(a: float, b: float) -> float:
+    """Function to divide two numbers."""
+    if b == 0:
+        raise ValueError("Cannot divide by zero!")
+    return a / b
+print("Division:", divide(10, 2))  # Output: Division: 5.0
+
+# %%
+# 11. Recursive function    
+def fibonacci(n):
+    """Function to return the nth Fibonacci number."""
+    if n <= 0:
+        return "Input should be a positive integer."
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        print("Calculating fibonacci(", n - 1, ") + fibonacci(", n - 2, ")")  
+        return fibonacci(n - 1) + fibonacci(n - 2)
+print("Fibonacci of 6 is:", fibonacci(6))  # Output: Fibonacci of 6 is: 5
+# Step-by-step for fibonacci(6)
+
+# fibonacci(6)
+# → needs fibonacci(5) + fibonacci(4)
+
+# fibonacci(5)
+# → needs fibonacci(4) + fibonacci(3)
+
+# fibonacci(4)
+# → needs fibonacci(3) + fibonacci(2)
+
+# fibonacci(3)
+# → needs fibonacci(2) + fibonacci(1)
+# → 1 + 0 = 1
+
+# So:
+
+# fibonacci(3) = 1
+
+# fibonacci(4) = fibonacci(3) + fibonacci(2) = 1 + 1 = 2
+
+# fibonacci(5) = fibonacci(4) + fibonacci(3) = 2 + 1 = 3
+
+# fibonacci(6) = fibonacci(5) + fibonacci(4) = 3 + 2 = 5
+# %%
+# 12. Function with global and nonlocal variables
+x = "global x"  # Global variable
+def outer():
+    x = "outer x"  # Enclosing variable
+    print("Outer:", x) 
+    def inner():
+        nonlocal x  # Refers to the nearest enclosing variable
+        x = "inner x"
+        print("Inner:", x)  # Output: Inner: inner x
+
+    inner()
+    print("Outer:", x)  # Output: Outer: inner x
+outer()
+print("Global:", x)  # Output: Global: global x
+# %%
+# 13. Function with exception handling  
+
+def safe_divide(a, b):
+    """Function to safely divide two numbers with exception handling."""
+    try:
+        result = a / b
+    except ZeroDivisionError:
+        return "Error: Cannot divide by zero!"
+    except TypeError:
+        return "Error: Invalid input type!"
+    else:
+        return result
+print("Safe Division:", safe_divide(10, 2))  # Output: Safe Division: 5.0
+print("Safe Division:", safe_divide(10, 0))  # Output: Safe Division: Error: Cannot divide by zero!
+print("Safe Division:", safe_divide(10, 'a'))  # Output: Safe Division: Error: Invalid input type!
+# %%
+# 14. Function with annotations
+def greet(name: int) -> str:
+    """Function to greet a person by name with type annotations."""
+    return f"Hello, {name}!"
+print(greet("Alice"))  # Output: Hello, Alice!
+print(greet(123))      # Output: Hello, 123! (No type enforcement)
+# Annotations can be accessed via the __annotations__ attribute
+print(greet.__annotations__)  # Output: {'name': <class 'str'>, 'return': <class 'str'>}
+# %%
+
+# 15. Function with keyword-only arguments
+
+def display_info(name, age, city="Unknown", country="Unknown"):
+    """Function to display personal information with keyword-only arguments."""
+    print(f"Name: {name}, Age: {age}, City: {city}, Country: {country}")
+# Calling the function with keyword-only arguments  
+display_info("Alice", 30, city="New York", country="USA")
+# Output: Name: Alice, Age: 30, City: New York, Country: USA
+
+# Calling the function without keyword-only arguments (uses default values)
+display_info("Bob", 25)
+# Output: Name: Bob, Age: 25, City: Unknown, Country: Unknown
+# %%    
+# 16. Function with mutable default arguments (use with caution)
+def append_to_list(value, lst=[]):
+    """Function to append a value to a list (mutable default argument)."""
+    lst.append(value)
+    return lst
+print(append_to_list(1))  # Output: [1] 
+print(append_to_list(2))  # Output: [1, 2] (list retains previous state)
+print(append_to_list(3, [10, 20]))  # Output: [10, 20, 3] (new list provided)
+# To avoid issues with mutable default arguments, use None as default and initialize inside the function
+def append_to_list_safe(value, lst=None):
+    """Function to append a value to a list safely."""
+    if lst is None:
+        lst = []
+    lst.append(value)
+    return lst
+print(append_to_list_safe(1))  # Output: [1]
+print(append_to_list_safe(2))  # Output: [2] (new list each time)
+print(append_to_list_safe(3, [10, 20]))  # Output: [10, 20, 3]
+# %% 17. Function with decorators
+def decorator_function(original_function):
+    """A simple decorator function."""
+    def wrapper_function(*args, **kwargs):
+        print(f"Wrapper executed before {original_function.__name__}")
+        return original_function(*args, **kwargs)
+    return wrapper_function
+@decorator_function
+def display():
+    """Function to display a message."""
+    print("Display function executed.")
+display()
+# Output:
+# Wrapper executed before display
+# Display function executed.
+# %%    
+# 18. Function with generators
+def count_up_to(n):
+    """Generator function to count up to n."""
+    count = 1
+    while count <= n:
+        yield count  # Yield the current count
+        count += 1
+# Using the generator
+counter = count_up_to(5)
+for number in counter:
+    print(number)  # Output: 1 2 3 4 5
+# %%   19. Function with closures
+def outer_function(msg):
+    """Outer function that defines an inner function (closure)."""
+    def inner_function():
+        print(msg)  # Accessing the outer function's variable
+    return inner_function  # Return the inner function
+closure = outer_function("Hello from the closure!")
+closure()  # Output: Hello from the closure!
+
+# %%
+# 20. Function with multiple return values
+
+def min_max(numbers):
+    """Function to return the minimum and maximum from a list of numbers."""
+    return min(numbers), max(numbers), len(numbers) 
+nums = [3, 1, 4, 1, 5, 9, 2, 6]
+minimum, maximum, equal = min_max(nums)
+print(f"Minimum: {minimum}, Maximum: {maximum}, lenth: {equal}")  # Output: Minimum: 1, Maximum: 9
+# 21. Function with type checking   
+def add_numbers(a, b):
+    """Function to add two numbers with type checking."""
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("both arguments must be numbers (int or float).")
+    elif b == 0:
+        raise TypeError("error")
+    else:
+        return a / b
+        
+print("Sum:", add_numbers(5, 0))  # Output: Sum: 8
+# print("Sum:", add_numbers(5, '3'))  # Raises TypeError
+
+# %%
+# 22. Function with memoization (caching results)
+def memoize(func):
+    """Decorator to cache function results."""
+    cache = {}
+    def wrapper(n):
+        if n not in cache:
+            cache[n] = func(n)
+        return cache[n]
+        print(cache)    
+    return wrapper
+    print(wrapper)
+@memoize
+def fibonacci_memo(n):
+    """Function to return the nth Fibonacci number with memoization."""
+    if n <= 0:
+        return "Input should be a positive integer."
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return fibonacci_memo(n - 1) + fibonacci_memo(n - 2)
+print("Fibonacci of 10 is:", fibonacci_memo(10))  # Output: Fibonacci of 10 is: 34
+# %%    keword-only arguments
+def display_info(name, age, *, city="Unknown", country="Unknown"):
+    """Function to display personal information with keyword-only arguments."""
+    print(f"Name: {name}, Age: {age}, City: {city}, Country: {country}")
+# Calling the function with keyword-only arguments
+display_info("Alice", 30, city="New York", country="USA")
+# Output: Name: Alice, Age: 30, City: New York, Country: USA
+# Calling the function without keyword-only arguments (uses default values)
+
+# %%
+def student_info(**args):
+    """Function that accepts any number of keyword arguments."""
+    for key, value in args.items():
+        print(f"{key}: {value}")
+
+# Calling the function
+student_info(name="Hemanth", age=21, course="Python", city="Hyderabad")
+
+# %% docstring in functions
+def add(a, b):
+    """function to add two numbers and return the result."""
+    return a + b
+add(3, 5)  # Output: Function to add two numbers and return the result.
+
+# %% pass by reference vs value
+def modify_list(lst):
+    """Function to modify a list by appending an item."""
+    lst.append(100)
+my_list = [1, 2, 3]
+modify_list(my_list)
+print(my_list)  # Output: [1, 2, 3, 100] (list is modified)
+# In Python, mutable objects (like lists, dictionaries) are passed by reference,
+# while immutable objects (like integers, strings, tuples) are passed by value.
+def modify_number(num):
+    """Function to modify a number by adding 10."""
+    num += 10
+my_number = num
+modify_number(my_number)
+print(my_number)  # Output: 5 (number is not modified)
+49

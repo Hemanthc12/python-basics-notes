@@ -20,3 +20,11 @@ y = int(y)
 res = x + y
 print("Sum is", res)
 # %%
+def evenodd(n):
+    if n % 2 == 0:
+        print(n, "is Even")
+    else:
+        print(n, "is Odd")  
+n = int(input("Enter a number: "))
+evenodd(4)
+# %%
