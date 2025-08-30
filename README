@@ -215,3 +215,101 @@ print(a < b or a < c)   # True (10 < 5 is False, but 10 < 15 is True)
 # 3. not: Reverses the result of the condition.
 print(not(a < c))       # False (a < c is True, not True → False)
 18
+# %%
+🧠 Order of Evaluation of Logical Operators in Python
+🔢 Precedence (Highest to Lowest)
+
+not
+
+and
+
+or
+
+⚙️ Evaluation Behavior
+
+Short-circuit evaluation is used:
+
+and: Stops at the first False
+
+or: Stops at the first True
+
+✅ Examples
+# 1. not
+x = True
+print(not x)  # Output: False
+
+# 2. and / or
+x = True
+y = False
+z = True
+print(x and y or z)  # Output: True
+# Evaluated as: (x and y) or z → (False) or True → True
+
+# 3. all three: not, and, or
+a = True
+b = False
+c = False
+print((not a or b) and c)  # Output: False
+
+🧪 Short-Circuiting Example
+def check():
+    print("Function called")
+    return True
+
+print(True or check())  # Output: True (check() not called)
+print(False and check())  # Output: False (check() not called)
+# %%
+| Operator | Description | Precedence | Short-Circuit Behavior         |
+| -------- | ----------- | ---------- | ------------------------------ |
+| `not`    | Logical NOT | Highest    | Always evaluated               |
+| `and`    | Logical AND | Medium     | Stops if left operand is False |
+| `or`     | Logical OR  | Lowest     | Stops if left operand is True  |
+
+
+# %%
+## 🧩 Python Membership and Identity Operators
+
+### 🔍 1. Membership Operators
+
+Used to test whether a value is **present in a sequence** (like string, list, tuple, set, or dictionary).
+
+| Operator | Description                            | Example                  | Result |
+|----------|----------------------------------------|--------------------------|--------|
+| `in`     | Returns `True` if value is present     | `'a' in 'apple'`         | `True` |
+| `not in` | Returns `True` if value is **not** present | `3 not in [1, 2, 4]`   | `True` |
+
+#### ✅ Example:
+```python
+fruits = ['apple', 'banana', 'cherry']
+
+print('apple' in fruits)     # True
+print('grape' not in fruits) # True
+
+### 🔍 2. Identity Operators
+Used to compare the memory location of two objects (i.e., whether they are the same object in memory).
+
+| Operator | Description                        | Example      | Result                       |
+| -------- | ---------------------------------- | ------------ | ---------------------------- |
+| `is`     | Returns `True` if objects are same | `x is y`     | `True` if same memory object |
+| `is not` | Returns `True` if objects differ   | `x is not y` | `True` if different objects  |
+
+examples
+x = [1, 2, 3]
+y = x
+z = [1, 2, 3]
+
+print(x is y)      # True (same object)
+print(x is z)      # False (same content, different objects)
+print(x == z)      # True (compares content)
+🧠 Summary
+| Operator Type | Operators      | Purpose                       |
+| ------------- | -------------- | ----------------------------- |
+| Membership    | `in`, `not in` | Check if value is in sequence |
+| Identity      | `is`, `is not` | Check if objects are same     |
+
+# %%
+x = [1, 2, 3]
+z = [1, 2, 3]
+# id (x)  # e.g., 140352303123712
+# print(x is z)      # False (same content, different objects)
+id (z)  # e.g., 140352303124032
