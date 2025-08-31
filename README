@@ -815,4 +815,161 @@ def modify_number(num):
 my_number = num
 modify_number(my_number)
 print(my_number)  # Output: 5 (number is not modified)
-49
+
+# %% escape sequences in python
+# Escape Sequences in Python
+# Escape sequences are special characters used to represent certain whitespace or control characters in strings.
+# They start with a backslash (\) followed by a specific character.
+# Common escape sequences include:
+# \n - Newline
+# \t - Tab
+# \\ - Backslash
+# \' - Single quote
+# \" - Double quote
+# \r - Carriage return
+# \b - Backspace
+# \f - Form feed
+# \v - Vertical tab
+# \ooo - Octal value
+# \xhh - Hexadecimal value
+# Example usage of escape sequences
+print("Hello\nWorld")  # Newline
+print("Hello\tWorld")  # Tab
+print("This is a backslash: \\")  # Backslash
+print('He said, "It\'s a beautiful day!"')  # Single quote
+print("He said, \"It's a beautiful day!\"")  # Double quote
+print("First Line\rSecond Line")  # Carriage return
+print("Hello\bWorld")  # Backspace
+print("Hello\fWorld")  # Form feed
+print("Hello\vWorld")  # Vertical tab
+print("Octal value: \110")  # Octal value (A)
+print("Hexadecimal value: \x42")  # Hexadecimal value (A)
+
+# %%
+# strung constructures in python using + operation
+# String Construction in Python using + Operator
+# You can construct strings by concatenating multiple strings using the + operator.         
+# This allows you to build complex strings from smaller parts.
+# Example 1: Simple concatenation
+greeting = "Hello"
+name = "Alice"
+message = greeting + ", " + name + "!"
+print(message)  # Output: Hello, Alice
+# Example 2: Concatenating multiple strings     
+part1 = "Python"
+part2 = "is"
+part3 = "awesome"
+full_message = part1 + " " + part2 + " " + part3 + "!"
+print(full_message)  # Output: Python is awesome!
+# Example 3: Concatenating strings with numbers (convert number to string)
+age = 25
+age_message = "I am " + str(age) + " years old."
+print(age_message)  # Output: I am 25 years old.
+# Example 4: Using + operator in a loop to build a string
+words = ["Python", "is", "fun"]
+sentence = ""
+for word in words:
+    sentence += word + " "
+sentence = sentence.strip() + "!"  # Remove trailing space and add exclamation
+print(sentence)  # Output: Python is fun!
+# Example 5: Concatenating strings with special characters
+path = "C:" + "\\" + "Users" + "\\" + "Alice" + "\\" + "Documents"  
+print("File path:", path)  # Output: File path: C:\Users\Alice\Documents
+# Example 6: Concatenating strings with escape sequences        
+line1 = "Hello\n"
+line2 = "World"
+full_text = line1 + line2
+print(full_text)  # Output: Hello (newline) World
+# Example 7: Concatenating strings with formatted values
+price = 19.99
+price_message = "The price is $" + str(price)
+print(price_message)  # Output: The price is $19.99
+# Example 8: Concatenating strings with user input
+user_name = input("Enter your name: ")
+welcome_message = "Welcome, " + user_name + "!"
+print(welcome_message)  # Output: Welcome, [user_name]!
+# Example 9: Concatenating strings with multiline text
+line1 = "This is line 1.\n"
+line2 = "This is line 2.\n"
+line3 = "This is line 3."
+multiline_text = line1 + line2 + line3
+print(multiline_text)
+# Output:
+# This is line 1.
+# This is line 2.
+# This is line 3.
+# Example 10: Concatenating strings with empty strings
+empty_string = ""
+non_empty_string = "Hello"
+combined = empty_string + non_empty_string
+print(combined)  # Output: Hello
+# Example 11: Concatenating strings with variables
+first_name = "John"
+last_name = "Doe"
+
+full_name = first_name + " " + last_name
+print("Full Name:", full_name)  # Output: Full Name: John Doe
+# Example 12: Concatenating strings with special formatting
+item = "laptop"
+price = 999.99
+formatted_message = "The price of the " + item + " is $" + str(price)
+print(formatted_message)  # Output: The price of the laptop is $999.99
+# Example 13: Concatenating strings with repeated patterns
+pattern = "abc"
+repeated_pattern = pattern + pattern + pattern
+print(repeated_pattern)  # Output: abcabcabc
+# Example 14: Concatenating strings with user-defined functions
+def create_greeting(name):
+    return "Hello, " + name + "!"
+greeting_message = create_greeting("Bob")
+print(greeting_message)  # Output: Hello, Bob!
+
+# Example 15: Concatenating strings with lists
+fruits = ["apple", "banana", "cherry"]
+fruit_string = ""
+for fruit in fruits:
+    fruit_string += fruit + ", "
+fruit_string = fruit_string.strip(", ")  # Remove trailing comma and space
+print("Fruits:", fruit_string)  # Output: Fruits: apple, banana, cherry
+# Example 16: Concatenating strings with conditional statements
+is_raining = True
+weather_message = "It's " + ("raining" if is_raining else "sunny") + " today."
+print(weather_message)  # Output: It's raining today.
+# Example 17: Concatenating strings with user input and validation
+user_input = input("Enter a number: ")
+if user_input.isdigit():
+    number_message = "You entered the number: " + user_input
+else:
+    number_message = "Invalid input. Please enter a valid number."
+print(number_message)
+# Example 18: Concatenating strings with file paths
+folder = "C:\\Users\\Alice"
+file_name = "document.txt"
+file_path = folder + "\\" + file_name
+print("File Path:", file_path)  # Output: File Path: C:\Users\Alice\document.txt
+
+# %% index () method in python
+# index() Method in Python
+# The index() method is used to find the first occurrence of a specified value in a string or a list.
+# It returns the index (position) of the value if found, otherwise raises a ValueError.
+# Syntax:
+# string.index(value, start, end)
+# list.index(value, start, end)
+# Parameters:
+# value: The value to search for.
+# start (optional): The starting index to begin the search (default is 0).  
+# end (optional): The ending index to end the search (default is the length of the string or list).
+# Example 1: Using index() with strings
+text = "Hello, welcome to the world of Python."
+index_of_welcome = text.index("welcome")
+print("Index of 'welcome':", index_of_welcome)  # Output: Index of 'welcome': 7
+# Example 2: Using index() with lists
+fruits = ["apple", "banana", "cherry", "date"]
+index_of_cherry = fruits.index("cherry")
+print("Index of 'cherry':", index_of_cherry)  # Output: Index of 'cherry': 2
+# Example 3: Using index() with start and end parameters
+text = "Hello, welcome to the world of Python. Welcome again!"
+index_of_welcome = text.index("Welcome", 20)  # Start searching from index 20
+print("Index of 'Welcome' after index 20:", index_of_welcome)  # Output: Index of 'Welcome' after index 20: 36
+
+# %%
